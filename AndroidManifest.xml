@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.kiwibank"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+
+    <!-- PosGate and PCL required permissions -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
+
+    <!-- end PosGate and PCL permissions -->
+    <application
+        android:name=".Application"
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon_96"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCEURqPr8ZxqRUTcy8z-eyRSlC4zZwXqig" />
+
+        <activity
+            android:name=".FirstActivity"
+            android:label="@string/app_name"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".SignInActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity
+            android:name=".SignUpActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".HomeScreen"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".SettingActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PinActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ProductDetailScreen"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar" -->
+        <activity
+            android:name=".PaymentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DeviceSetupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserSetupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MerchantSetupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TransactionStatusActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserManagementActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ProductSearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PosActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EnterDataActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".UserDetail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ReportsGraphsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ProductDetail"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".OrgaizationProfile"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <!-- Embedded Wrapper Activities -->
+
+        <activity android:name="com.f2c.posgate.SettingsActivity" />
+
+        <!-- Embedded PosGate & PCL Activities and Services -->
+        <activity
+            android:name="com.ingenico.posgate.ConfigureActivity"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.ingenico.posgate.CONFIGURE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.ALTERNATIVE" />
+                <category android:name="android.intent.category.SELECTED_ALTERNATIVE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ingenico.posgate.OperationActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:enabled="true"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="com.ingenico.posgate.DIALOG_OPEN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.ingenico.posgate.PosGateService"
+            android:enabled="true"
+            android:exported="false"
+            android:icon="@drawable/ic_posgate"
+            android:label="@string/posgate_service_name">
+            <intent-filter>
+                <action android:name="com.ingenico.posgate.SERVICE_RUN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+        <service android:name="com.ingenico.pclservice.PclService" />
+        <service android:name="com.ingenico.pclservice.BluetoothService" />
+        <!-- end PosGate & PCL -->
+        <activity
+            android:name=".ReportsDetail"
+            android:label="@string/title_activity_reports_detail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ProfileActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:screenOrientation="portrait" />
+        <!--
+        <activity android:name="com.artifex.mupdfdemo.MuPDFActivity" >
+        </activity>
+        -->
+        <activity
+            android:name=".PDFViewerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ReportsGraphMapActivity"
+            android:label="@string/title_activity_reports_graph_map"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewReceipt"
+            android:label="@string/title_activity_view_receipt"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".WeChatActivity"
+            android:label="@string/title_activity_we_chat"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".BaseActivity" />
+        <activity
+            android:name=".HelpActivity"
+            android:label="@string/title_activity_help"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".XpressTapActivity"></activity>
+    </application>
+
+</manifest>

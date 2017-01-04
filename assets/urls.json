@@ -1,0 +1,10 @@
+{ "servers": 
+  [
+	{"title" : "ANZ Dev 2", "url": "https://10.46.8.49:50027/" },
+	{"title" : "ANZ SIT2", "url": "https://103.20.137.68:80/" },
+	{"title" : "ANZ SIT4", "url": "https://mposcit.pp.vficonnect.net.nz:80/" },
+	{"title" : "ANZ QA4 Node1", "url": "https://103.20.137.95:443/" },
+	{"title" : "ANZ QA4 Node2", "url": "https://103.20.137.89:80/" },
+	{"title" : "Production", "url": "https://nz1.mpos.vficonnect.co.nz:443/"}
+  ]
+}
